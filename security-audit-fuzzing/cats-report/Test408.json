@@ -1,0 +1,79 @@
+{
+  "testId": "Test 408",
+  "scenario": "Send a happy flow request with a [unsupported] Accept header, value [text/csv]",
+  "expectedResult": "Should return 406",
+  "result": "error",
+  "resultReason": "Unexpected Response Code: 200",
+  "resultDetails": "Response does NOT match expected result. Response code is NOT from a list of expected codes for this FUZZER: expected [406, 415], actual [200]",
+  "resultIgnoreDetails": null,
+  "request": {
+    "headers": [
+      {
+        "key": "Accept",
+        "value": "text/csv"
+      },
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "key": "User-Agent",
+        "value": "cats/11.7.2-SNAPSHOT (Test 408 - UnsupportedAcceptHeaders)"
+      },
+      {
+        "key": "Cookie",
+        "value": "session=.eJydTstuwzAM-xXD52Cw5ciPfMXuQ1HIstQEyNYhTk9F_33ePmEnkiAJ8mmvulNfpdvl42nNOcB-Su90EzvZ912oi9nvN7N9mfNuiHmY5ly3br5H5s1eXtM_e5dpjB_SV7ucx0OG2ppdLHKcsWYHFUsk8D6BzMy1KUpwJbVMAWKukKg5UpihAopAUScpKlJTrwE0Nsy5oRTOIbnsU50VE7dUawAImUudfeToiZUzEg8uWn_vXx9djr83_vUDjB5ZkQ.Zp2uIg.ByIFoQnuT2wS4qoFeF2byFvxyVI"
+      }
+    ],
+    "payload": "{}",
+    "httpMethod": "GET",
+    "url": "http://localhost:5000/api/user",
+    "timestamp": "Sun, 21 Jul 2024 18:38:19 -0700"
+  },
+  "response": {
+    "responseCode": 200,
+    "httpMethod": "GET",
+    "responseTimeInMs": "3",
+    "numberOfWordsInResponse": "9",
+    "numberOfLinesInResponse": "6",
+    "contentLengthInBytes": "85",
+    "jsonBody": {
+      "data": {
+        "email": "asdfasdf@example.com",
+        "username": "asdfasdf"
+      }
+    },
+    "headers": [
+      {
+        "key": "content-length",
+        "value": "85"
+      },
+      {
+        "key": "content-type",
+        "value": "application/json"
+      },
+      {
+        "key": "date",
+        "value": "Mon, 22 Jul 2024 01:38:19 GMT"
+      },
+      {
+        "key": "server",
+        "value": "Werkzeug/2.0.3 Python/3.9.17"
+      },
+      {
+        "key": "set-cookie",
+        "value": "session=.eJydTkFuwzAM-4rhczDYsmU7ecXuQ1HIstQEyNaizk5F_153T9iJJEiCfNiz7tRX6Xb5elhzDLDf0jtdxE72cxfqYvbrxWw_5rgaYh6mOdatm9vIfNjTc_pn7zSN8bv01S5Ke5cht2YXi5wi1uKg4pwIvM8gkbk2RQluzq1QgFQqZGqOFCJUQBGY1UlOitTUawBNDUtpKDOXkF3xuUbFzC3XGgBC4blGnzh5YuWCxIOL1vf_82-X-98b_3wB5wdZ3A.Zp24Cw.NHZBF4p3H-1JW7kfhgOMZuzdm5o; Path=/; SameSite=Lax"
+      },
+      {
+        "key": "vary",
+        "value": "Cookie"
+      }
+    ],
+    "responseContentType": "application/json"
+  },
+  "path": "/api/user",
+  "fuzzer": "UnsupportedAcceptHeaders",
+  "fullRequestPath": "http://localhost:5000/api/user",
+  "contractPath": "/api/user",
+  "server": "http://localhost:5000"
+}

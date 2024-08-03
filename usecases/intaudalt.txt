@@ -1,0 +1,18 @@
+title Use Case: Internal Audit Alerts
+
+autonumber 1
+
+
+participant Org SI Check
+database Org PI
+database Reports
+actor Security Analyst
+
+Org SI Check->Org SI Check: Use Case 1 occurs
+alt False Positive
+Org SI Check->Reports:False positive logged
+else True Positive
+Org SI Check->Reports:True positive logged
+Org SI Check->Security Analyst:Alert Sent to Analyst
+end
+Reports<->Security Analyst:DB Query

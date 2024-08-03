@@ -1,0 +1,96 @@
+<!DOCTYPE html> /* Written by Michael Cieslak */
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gAItkeep/Propscreen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #828282; /* Destroyer gray color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white; /* Make text white */
+        }
+        .container {
+            background-color: #000; /* Make container black */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .highlight {
+            color: red;
+        }
+        #chatOutput {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to g<span class="highlight">AI</span>tkeep/Propscreen!</h1>
+        <p>Please enter a prompt for *company* language model below!</p>
+        <form id="chatForm">
+            <input type="text" id="userPrompt" name="prompt" placeholder="Enter your prompt here" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="chatOutput"></div>
+    </div>
+
+    <script>
+        // Placeholder for chatbot integration
+        document.getElementById('chatForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var userPrompt = document.getElementById('userPrompt').value;
+            var chatOutput = document.getElementById('chatOutput');
+
+            // Append user prompt to chat history
+            chatOutput.innerHTML += '<p><strong>You:</strong> ' + userPrompt + '</p>';
+
+            // Clear the input field
+            document.getElementById('userPrompt').value = '';
+
+            // Here you can add the integration with your language model
+            // For example, sending the prompt to an API endpoint and displaying the response
+            // Example:
+            /*
+            fetch('YOUR_LANGUAGE_MODEL_API_ENDPOINT', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: userPrompt }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatOutput.innerHTML += '<p><strong>Bot:</strong> ' + data.response + '</p>';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            */
+        });
+    </script>
+</body>
+</html>

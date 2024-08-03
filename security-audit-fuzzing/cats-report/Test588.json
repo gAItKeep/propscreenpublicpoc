@@ -1,0 +1,72 @@
+{
+  "testId": "Test 588",
+  "scenario": "Send a happy flow request with undocumented HTTP method: CONNECT",
+  "expectedResult": "Should return 405",
+  "result": "success",
+  "resultReason": null,
+  "resultDetails": "Request failed as expected for http method [CONNECT] with response code [405]",
+  "resultIgnoreDetails": null,
+  "request": {
+    "headers": [
+      {
+        "key": "Accept",
+        "value": "application/json"
+      },
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "key": "User-Agent",
+        "value": "cats/11.7.2-SNAPSHOT (Test 588 - NonRestHttpMethods)"
+      },
+      {
+        "key": "Cookie",
+        "value": "session=.eJydTstuwzAM-xXD52Cw5ciPfMXuQ1HIstQEyNYhTk9F_33ePmEnkiAJ8mmvulNfpdvl42nNOcB-Su90EzvZ912oi9nvN7N9mfNuiHmY5ly3br5H5s1eXtM_e5dpjB_SV7ucx0OG2ppdLHKcsWYHFUsk8D6BzMy1KUpwJbVMAWKukKg5UpihAopAUScpKlJTrwE0Nsy5oRTOIbnsU50VE7dUawAImUudfeToiZUzEg8uWn_vXx9djr83_vUDjB5ZkQ.Zp2uIg.ByIFoQnuT2wS4qoFeF2byFvxyVI"
+      }
+    ],
+    "payload": "",
+    "httpMethod": "CONNECT",
+    "url": "http://localhost:5000/register",
+    "timestamp": "Sun, 21 Jul 2024 18:38:20 -0700"
+  },
+  "response": {
+    "responseCode": 405,
+    "httpMethod": "CONNECT",
+    "responseTimeInMs": "2",
+    "numberOfWordsInResponse": "23",
+    "numberOfLinesInResponse": "4",
+    "contentLengthInBytes": "178",
+    "jsonBody": {
+      "notAJson": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>405 Method Not Allowed</title>\n<h1>Method Not Allowed</h1>\n<p>The method is not allowed for the requested URL.</p>\n"
+    },
+    "headers": [
+      {
+        "key": "allow",
+        "value": "OPTIONS, GET, HEAD"
+      },
+      {
+        "key": "content-length",
+        "value": "178"
+      },
+      {
+        "key": "content-type",
+        "value": "text/html; charset=utf-8"
+      },
+      {
+        "key": "date",
+        "value": "Mon, 22 Jul 2024 01:38:20 GMT"
+      },
+      {
+        "key": "server",
+        "value": "Werkzeug/2.0.3 Python/3.9.17"
+      }
+    ],
+    "responseContentType": "text/html; charset=utf-8"
+  },
+  "path": "/register",
+  "fuzzer": "NonRestHttpMethods",
+  "fullRequestPath": "http://localhost:5000/register",
+  "contractPath": "/register",
+  "server": "http://localhost:5000"
+}

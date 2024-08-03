@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <h1>Welcome to Company GenAI Application</h1>
+        <h2>Protected by Propscreen</h2>
+        <p>Please enter a prompt for *company* language model below!</p>
+        <form id="chatForm">
+            <input type="text" id="userPrompt" name="prompt" placeholder="Enter your prompt here" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="chatOutput"></div>
+    </div>
+
+    <script>
+        // Placeholder for chatbot integration
+        document.getElementById('chatForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var userPrompt = document.getElementById('userPrompt').value;
+            var chatOutput = document.getElementById('chatOutput');
+
+            // Append user prompt to chat history
+            chatOutput.innerHTML += '<p><strong>You:</strong> ' + userPrompt + '</p>';
+
+            // Clear the input field
+            document.getElementById('userPrompt').value = '';
+
+            // Here you can add the integration with your language model
+            // For example, sending the prompt to an API endpoint and displaying the response
+            // Example:
+
+            const requestBody = JSON.stringify({ prompt: userPrompt });
+            fetch('/api/v1/gait-llm-check/', {
+                method: 'POST',
+                redirect: "error",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: requestBody,
+            })
+                .catch(error => {
+                    console.error('GAIT API HTTP Request Error:', error);
+                    document.location = "/login?next=/api/v1/gait-llm-check/";
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Response received from GAIT API: ", data);
+                    chatOutput.innerHTML += '<p><strong>Bot:</strong> ' + data.bot_response + '</p>';
+                });
+
+        });
+    </script>
+</body>
+{% endblock %}

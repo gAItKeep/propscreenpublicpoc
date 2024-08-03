@@ -1,0 +1,7 @@
+internalpropscreen.click {
+	reverse_proxy :5000
+}
+
+pgadmin.internalpropscreen.click {
+	reverse_proxy :3000
+}

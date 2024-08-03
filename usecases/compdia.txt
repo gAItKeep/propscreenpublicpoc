@@ -1,0 +1,45 @@
+title Comprehensive Diagram
+
+autonumber 1
+
+actor LLM User
+participant Web Client
+participant Sensitive Info Check
+participant LLM
+participant Org SI Check
+database Org PI
+database Reports
+actor Security Analyst
+
+LLM User ->Web Client:User sends login request
+alt Authentication Success
+Web Client->LLM User: User granted access
+else Authentication Failure
+Web Client->LLM User:User denied access
+LLM User->LLM User:User retries login attempt
+end
+LLM User->Web Client:User sends prompt
+Web Client->Sensitive Info Check:Prompt forwarded
+Sensitive Info Check->Sensitive Info Check: Prompt Logged
+Sensitive Info Check->LLM: Prompt Sent to LLM
+LLM->Sensitive Info Check: LLM Response Returned
+Sensitive Info Check->Sensitive Info Check: Response Scanned for SI
+alt No SI Detected
+Sensitive Info Check->Web Client:Response sent to client
+Web Client->LLM User:User receives reply
+else SI Detected
+Sensitive Info Check->Org SI Check: Prompt sent to secondary check
+Org SI Check->Org PI:Query for Org PI
+Org PI->Org SI Check: Response
+alt False Positive
+Org SI Check->Reports: False positive logged
+Org SI Check->Web Client:Response Returned
+Web Client->LLM User:User receives reply
+else True Positive
+Org SI Check->Reports: True positive logged
+Org SI Check->Security Analyst:Send alert to security analyst
+Org SI Check->Web Client:Response Returned
+Web Client->LLM User:User receives warning
+end
+end
+Reports<->Security Analyst:DB Query

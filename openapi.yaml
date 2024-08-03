@@ -1,0 +1,179 @@
+openapi: 3.0.0
+info:
+  license: 
+    name: MIT
+    url: https://opensource.org/license/mit
+  title: "Flask for Startups API"
+  description: "API for the Flask for Startups tutorial (limited by provided code)"
+  version: "1.0.0"
+servers:
+  - url: http://localhost:5000
+
+security: 
+  -  httpSessionCookieAuth: []
+components:
+  securitySchemes:
+    httpSessionCookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+paths:
+  /register:
+    get:
+      operationId: registerV1
+      summary: "Get registration page"
+      description: "Returns the registration page content (likely HTML)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /login:
+    get:
+      operationId: loginV1
+      summary: "Get login page"
+      description: "Returns the login page content (likely HTML)"
+      responses:
+        200:
+          description: "Success"
+        401:
+          description: "Unauthorized"
+
+  /settings:
+    get:
+      operationId: settingsV1
+      summary: "Get user settings page"
+      description: "Returns the user settings page content (likely HTML)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /api/login:
+    post:
+      summary: "Login user"
+      operationId: apiLoginV1
+      description: "Logs in a user with credentials (details not provided)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /logout:
+    get:
+      operationId: logoutV1
+      summary: "Logout user"
+      description: "Logs out the currently authenticated user"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        500:
+          description: "Internal Server Error"
+
+  /api/register:
+    post:
+      operationId: apiRegisterV1
+      summary: "Register user"
+      description: "Registers a new user (details not provided)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        409:
+          description: "Conflict (Email already exists)"
+        500:
+          description: "Internal Server Error"
+
+  /api/user:
+    get:
+      operationId: getUserV1
+      summary: "Get user information"
+      description: "Returns information about the currently authenticated user"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /api/email:
+    post:
+      operationId: emailV1
+      summary: "Send email"
+      description: "Sends an email (details not provided)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /admin:
+    get:
+      operationId: adminV1
+      summary: "Get admin page"
+      description: "Returns the admin page content (likely HTML)"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  # Unidentified endpoint (example for potential future routes)
+  /api/v1/gait-llm-check:
+    post:
+      summary: "Gait LLM Check (details missing)"
+      operationId: gaitLlmCheckV1
+      description: "Functionality of this endpoint is unknown due to missing information"
+      requestBody: 
+        content: 
+          propertyName: 
+            schema: 
+              required: 
+                -  prompt
+              type: object
+              properties: 
+                prompt:
+                  type: string
+                  minLength: 1
+        
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request (Validation Error)"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+

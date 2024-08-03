@@ -1,0 +1,68 @@
+{
+  "testId": "Test 212",
+  "scenario": "Send {$} as invalid json request body",
+  "expectedResult": "Should return 4XX",
+  "result": "warn",
+  "resultReason": "Response content type not matching the contract",
+  "resultDetails": "Response content type not matching the contract: expected [application/json], actual [text/html; charset=utf-8]",
+  "resultIgnoreDetails": null,
+  "request": {
+    "headers": [
+      {
+        "key": "Accept",
+        "value": "application/json"
+      },
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "key": "User-Agent",
+        "value": "cats/11.7.2-SNAPSHOT (Test 212 - RandomDummyInvalidJsonBody)"
+      },
+      {
+        "key": "Cookie",
+        "value": "session=.eJydTstuwzAM-xXD52Cw5ciPfMXuQ1HIstQEyNYhTk9F_33ePmEnkiAJ8mmvulNfpdvl42nNOcB-Su90EzvZ912oi9nvN7N9mfNuiHmY5ly3br5H5s1eXtM_e5dpjB_SV7ucx0OG2ppdLHKcsWYHFUsk8D6BzMy1KUpwJbVMAWKukKg5UpihAopAUScpKlJTrwE0Nsy5oRTOIbnsU50VE7dUawAImUudfeToiZUzEg8uWn_vXx9djr83_vUDjB5ZkQ.Zp2uIg.ByIFoQnuT2wS4qoFeF2byFvxyVI"
+      }
+    ],
+    "payload": "{$}",
+    "httpMethod": "POST",
+    "url": "http://localhost:5000/api/login",
+    "timestamp": "Sun, 21 Jul 2024 18:38:18 -0700"
+  },
+  "response": {
+    "responseCode": 400,
+    "httpMethod": "POST",
+    "responseTimeInMs": "2",
+    "numberOfWordsInResponse": "30",
+    "numberOfLinesInResponse": "4",
+    "contentLengthInBytes": "221",
+    "jsonBody": {
+      "notAJson": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>400 Bad Request</title>\n<h1>Bad Request</h1>\n<p>Failed to decode JSON object: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)</p>\n"
+    },
+    "headers": [
+      {
+        "key": "content-length",
+        "value": "221"
+      },
+      {
+        "key": "content-type",
+        "value": "text/html; charset=utf-8"
+      },
+      {
+        "key": "date",
+        "value": "Mon, 22 Jul 2024 01:38:18 GMT"
+      },
+      {
+        "key": "server",
+        "value": "Werkzeug/2.0.3 Python/3.9.17"
+      }
+    ],
+    "responseContentType": "text/html; charset=utf-8"
+  },
+  "path": "/api/login",
+  "fuzzer": "RandomDummyInvalidJsonBody",
+  "fullRequestPath": "http://localhost:5000/api/login",
+  "contractPath": "/api/login",
+  "server": "http://localhost:5000"
+}

@@ -83,6 +83,28 @@ In "Production" (starts all 4 of the containers, including Caddy):
 docker compose up -d
 ```
 
+### Create an account
+Go to this URL
+```sh
+http://localhost:5000/register
+```
+
+Create your credentials
+![create your account](image.png)
+
+Go to this URL
+```sh
+http://localhost:5000/login
+```
+
+Enter your credentials
+![login page](image-1.png)
+
+You will be brought to the interface page after successful authentication
+![main page](image-2.png)
+
+You are now free to try the PropScreen Proof of Concept!
+
 ### If you need to wipe the database
 
 ```sh

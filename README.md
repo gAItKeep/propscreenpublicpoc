@@ -90,7 +90,7 @@ http://localhost:5000/register
 ```
 
 Create your credentials
-![create your account](image.png)
+![create your account](register.png)
 
 Go to this URL
 ```sh
@@ -98,10 +98,10 @@ http://localhost:5000/login
 ```
 
 Enter your credentials
-![login page](image-1.png)
+![login page](login.png)
 
 You will be brought to the interface page after successful authentication
-![main page](image-2.png)
+![main page](interface.png)
 
 You are now free to try the PropScreen Proof of Concept!
 

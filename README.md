@@ -143,4 +143,4 @@ with SHA256.
 Nuvic's Flask For Startups, [link here](https://github.com/nuvic/flask_for_startups)\
 pgAdmin, [link here](https://www.pgadmin.org/)\
 caddy, [link here](https://caddyserver.com/)\
-LLM Guardb [link here](https://llm-guard.com/)
+LLM Guard, [link here](https://llm-guard.com/)

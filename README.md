@@ -111,8 +111,36 @@ You are now free to try the PropScreen Proof of Concept!
 docker compose down -v
 ```
 
+## Customizing the Data
+
+Navigate to the "docs" directory and upload the PDFs you want to include there
+
+Navigate to "propscreen/sicheck.py" and change the following line:
+![Gradio API Screenshot](image.png)
+
+from 
+
+```
+list_file_obj=[handle_file('docs/test/20240724_1117AM_Lambda.pdf')],
+```
+
+to
+
+```
+list_file_obj=[handle_file('YOUR_PDFS_RELATIVE_PATH')],
+```
+
+Navigate to the S3 Bucket in which the context strings are stored, for reference
+that is CONTEXT_BUCKET=YOUR_AWS_S3_BUCKET_1 and CONTEXT_OBJECT=YOUR_AWS_S3_CSV_FILE_1.
+In there enter the context strings you would like to use.
+
+Navigate to the S3 Bucket in which the context strings are stored, for reference
+that is ORG_SI_HASH_DB=YOUR_AWS_S3_BUCKET_2 and HASHES_OBJECT=YOUR_AWS_S3_CSV_FILE_2.
+In there enter the hashes you would like to use. Note that you only need to hash
+with SHA256.
+
 ## Acknowledgements
 Nuvic's Flask For Startups, [link here](https://github.com/nuvic/flask_for_startups)\
 pgAdmin, [link here](https://www.pgadmin.org/)\
 caddy, [link here](https://caddyserver.com/)\
-LLM Guard [link here](https://llm-guard.com/)
+LLM Guardb [link here](https://llm-guard.com/)
